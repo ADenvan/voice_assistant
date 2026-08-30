@@ -1,0 +1,24 @@
+# Audio
+sounddevice>=0.5
+numpy>=1.26
+scipy>=1.12
+
+# STT
+faster-whisper>=1.1
+
+# LLM
+httpx>=0.27
+
+# TTS
+# torch (install separately with CUDA)
+
+# Config
+pydantic>=2.0
+pydantic-settings>=2.0
+python-dotenv>=1.0
+
+# Storage
+aiosqlite>=0.20
+
+# CLI
+typer>=0.12
