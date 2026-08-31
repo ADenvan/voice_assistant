@@ -11,6 +11,7 @@ class Config(BaseSettings):
     sample_rate: int = 16000
     chunk_duration_ms: int = 500 # размер чанка для VAD
     vad_threshold: float = 0.5 # порог VAD
+    output_device: int | None = None  # None = default device
 
     whisper_model: str = "base" # модель Whisper
     whisper_device: str = "cpu" # device для Whisper
