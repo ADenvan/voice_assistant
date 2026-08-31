@@ -7,33 +7,33 @@ from src.core.config import Config
 from src.core.exceptions import EmptyTranscriptionError, STTError
 
 logger = logging.getLogger("voice_ai.stt")
-"""
-Что такое STT?
-STT (Speech-to-Text) — преобразует аудио в текст.
-np.ndarray (аудио, 16kHz) → faster-whisper → "Привет, как дела?"
+# """
+# Что такое STT?
+# STT (Speech-to-Text) — преобразует аудио в текст.
+# np.ndarray (аудио, 16kHz) → faster-whisper → "Привет, как дела?"
 
-Ключевые концепции
-1. faster-whisper:
-- Это оптимизированная реализация Whisper от OpenAI
-- Использует CTranslate2 вместо PyTorch
-- Быстрее и легче, но требует отдельной установки
+# Ключевые концепции
+# 1. faster-whisper:
+# - Это оптимизированная реализация Whisper от OpenAI
+# - Использует CTranslate2 вместо PyTorch
+# - Быстрее и легче, но требует отдельной установки
 
-2. Модели Whisper:
-- tiny    → самый быстрый, низкое качество
-- base    → баланс (для учебного проекта)
-- small   → лучше
-- medium  → ещё лучше
-- large   → лучшее качество, медленный
-- large-v3 → последняя версия
+# 2. Модели Whisper:
+# - tiny    → самый быстрый, низкое качество
+# - base    → баланс (для учебного проекта)
+# - small   → лучше
+# - medium  → ещё лучше
+# - large   → лучшее качество, медленный
+# - large-v3 → последняя версия
 
-3. Lazy loading:
-- Модель загружается при первом вызове, не при создании объекта
-- Экономит память и время запуска
+# 3. Lazy loading:
+# - Модель загружается при первом вызове, не при создании объекта
+# - Экономит память и время запуска
 
-4. Async wrapper:
-- faster-whisper синхронный → оборачиваем в asyncio.to_thread
-- Чтобы не блокировать event loop
-"""
+# 4. Async wrapper:
+# - faster-whisper синхронный → оборачиваем в asyncio.to_thread
+# - Чтобы не блокировать event loop
+# """
 
 
 class FasterWhisperEngine:

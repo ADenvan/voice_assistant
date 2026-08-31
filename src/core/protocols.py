@@ -6,9 +6,9 @@ from typing import Protocol, TypedDict, runtime_checkable
 
 import numpy as np
 
-"""
-protocols.py — что это и зачем?
-Protocol — это интерфейс в Python (structural typing). Он описывает контракт: какие методы должен иметь объект, без наследования."""
+# """
+# protocols.py — что это и зачем?
+# Protocol — это интерфейс в Python (structural typing). Он описывает контракт: какие методы должен иметь объект, без наследования."""
 
 class PipelineState(Enum):
     IDLE = auto()

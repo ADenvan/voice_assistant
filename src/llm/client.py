@@ -9,34 +9,34 @@ from src.core.exceptions import LLMConnectionError, LLMTimeoutError
 
 logger = logging.getLogger("voice_ai.llm")
 
-"""
-Что такое LLM Client?
-LLM Client — отправляет запросы к локальной модели Ollama, получает ответы (streaming или обычный).
-messages: [{role: "system", content: "..."}, {role: "user", content: "Привет"}]
-    ↓
-OllamaClient → httpx → POST http://localhost:11434/api/chat
-    ↓
-AsyncIterator[str] → "Привет!" → "Как" → "дела?"
+# """
+# Что такое LLM Client?
+# LLM Client — отправляет запросы к локальной модели Ollama, получает ответы (streaming или обычный).
+# messages: [{role: "system", content: "..."}, {role: "user", content: "Привет"}]
+#     ↓
+# OllamaClient → httpx → POST http://localhost:11434/api/chat
+#     ↓
+# AsyncIterator[str] → "Привет!" → "Как" → "дела?"
 
-Ключевые концепции
+# Ключевые концепции
 
-1. Streaming:
-- Обычный запрос: ждём полный ответ (долго)
-- Streaming: получаем токены по мере генерации (быстрее для пользователя)
+# 1. Streaming:
+# - Обычный запрос: ждём полный ответ (долго)
+# - Streaming: получаем токены по мере генерации (быстрее для пользователя)
 
-2. Ollama API:
-POST /api/chat
-{
-    "model": "qwen2.5:7b",
-    "messages": [...],
-    "stream": true,
-    "options": {"temperature": 0.7, "num_ctx": 4096}
-}
+# 2. Ollama API:
+# POST /api/chat
+# {
+#     "model": "qwen2.5:7b",
+#     "messages": [...],
+#     "stream": true,
+#     "options": {"temperature": 0.7, "num_ctx": 4096}
+# }
 
-3. httpx vs requests:
-- httpx — async, поддерживает streaming
-- requests — sync, не подходит для asyncio
-"""
+# 3. httpx vs requests:
+# - httpx — async, поддерживает streaming
+# - requests — sync, не подходит для asyncio
+# """
 
 
 class OllamaClient:
