@@ -1,5 +1,5 @@
 [project]
-name = "voice_assistant"
+name = "voice_assistant" # имя проекта_assistant.main:main" 
 version = "0.1.0"
 description = "Educational Russian voice AI assistant"
 requires-python = ">=3.13"
@@ -16,7 +16,7 @@ include = ["src*"]
 [tool.ruff]
 target-version = "py313"
 line-length = 99
-src = ["src"]
+src = ["src"] # без tests
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "N", "UP", "B", "SIM", "TCH", "RUF"]

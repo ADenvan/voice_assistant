@@ -1,7 +1,9 @@
 # Audio
 sounddevice>=0.5
+soundfile>=0.12      # для сохранения/загрузки аудио
 numpy>=1.26
-scipy>=1.12
+scipy>=1.12          # для ресемплинга
+
 
 # STT
 faster-whisper>=1.1
@@ -22,3 +24,4 @@ aiosqlite>=0.20
 
 # CLI
 typer>=0.12
+colorama>=0.4        # цветной вывод в Windows

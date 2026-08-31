@@ -1,9 +1,14 @@
-from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
-class Config(BaseSettings):
 
-    sample_rate: int = 16000 # частота дискретизации микрофона
+class Config(BaseSettings):
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        env_file_encoding="utf-8",
+        extra="ignore",
+    )
+
+    sample_rate: int = 16000
     chunk_duration_ms: int = 500 # размер чанка для VAD
     vad_threshold: float = 0.5 # порог VAD
 
@@ -26,5 +31,5 @@ class Config(BaseSettings):
 
     db_path: str = "data/voice_assistant.db"
     history_limit: int = 50
-    
+
     log_level: str = "INFO"
