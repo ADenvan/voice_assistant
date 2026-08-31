@@ -25,7 +25,20 @@ class TurnResult:
     latency_ms: int
     interrupted: bool = False
 
-# 1. Protocol описывает КОНТРАКТ (что должен уметь объект)
+
+class Message(TypedDict):
+    role: str
+    content: str
+    timestamp: str
+
+
+@dataclass
+class SessionInfo:
+    session_id: str
+    created_at: str
+    turn_count: int = 0
+
+
 @runtime_checkable
 class AudioInput(Protocol):
     async def start(self) -> None: ...
@@ -84,3 +97,6 @@ class MemoryStore(Protocol):
     async def create_session(self) -> str: ...
     async def save_message(self, session_id: str, role: str, content: str) -> None: ...
     async def get_history(self, session_id: str, limit: int) -> list[dict]: ...
+    async def delete_session(self, session_id: str) -> None: ...
+    async def list_sessions(self) -> list[SessionInfo]: ...
+    async def session_exists(self, session_id: str) -> bool: ...
