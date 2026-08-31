@@ -20,6 +20,9 @@ class Config(BaseSettings):
     ollama_base_url: str = "http://localhost:11434"
     ollama_model: str = "qwen2.5:7b"
     ollama_timeout: int = 60
+    ollama_temperature: float = 0.7
+    ollama_num_ctx: int = 4096
+    ollama_num_predict: int = 256
 
     silero_language: str = "ru"
     silero_voice: str = "baya"
