@@ -9,24 +9,6 @@ from src.core.config import Config
 
 logger = logging.getLogger("voice_ai.audio.output")
 
-"""
-Audio Output — воспроизводит аудио через динамики.
-TTS → np.ndarray (48kHz) → resample? → sounddevice.play() → Speakers
-Ключевые концепции
-
-1. Sample Rate mismatch:
-TTS генерирует: 48000 Hz
-Устройство: 44100 Hz или 48000 Hz или другое
-→ нужен ресемплинг
-
-2. Прерывание (interrupt):
-Пользователь начинает говорить пока ассистент говорит
-→ нужно остановить воспроизведение
-
-3. Clamping:
-Аудио должно быть в диапазоне [-1.0, 1.0]
-Если значения больше → обрезаем (clip)
-"""
 
 class SoundDeviceOutput:
     def __init__(self, config: Config) -> None:

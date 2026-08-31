@@ -6,20 +6,6 @@ from src.core.config import Config
 
 logger = logging.getLogger("voice_ai.audio.vad")
 
-"""
-Что здесь реализовал
-
-EnergyVAD — быстрый, простой
-    vad = EnergyVAD(config)
-    vad.is_speech(chunk)  # RMS > threshold → True
-
-SileroVAD — точный, ML
-    vad = SileroVAD(config)
-    vad.load()  # загрузка модели
-    vad.is_speech(chunk)  # нейросеть → вероятность → True/False
-
-"""
-
 
 class SileroVAD:
     def __init__(self, config: Config) -> None:

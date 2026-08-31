@@ -24,15 +24,18 @@ class Config(BaseSettings):
     ollama_num_ctx: int = 4096
     ollama_num_predict: int = 256
 
-    silero_language: str = "ru" # 
+    silero_language: str = "ru" #
     silero_speaker: str = "v5_ru" # Это
     silero_voice: str = "baya"
     silero_sample_rate: int = 48000
 
     activation_mode: str = "button" # button/wake_word/continuous
-    wake_word_phrases: list[str] = ["войс ай", "voice ai"]
-    wake_word_threshold: float = 0.7
+    wake_word_model: str = "base"
+    wake_word_device: str = "cpu"
+    wake_word_compute_type: str = "int8"
+    wake_word_phrases: list[str] = ["войс ай", "voice ai", "войсай", "войс айай"]
     wake_word_cooldown_s: float = 3.0
+    wake_word_match_threshold: float = 0.7
 
     db_path: str = "data/voice_assistant.db"
     history_limit: int = 50
